@@ -1,7 +1,7 @@
 import { defineConfig, normalizePath } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJSX from '@vitejs/plugin-vue-jsx'
-import { resolve } from 'path'
+import { resolve, join } from 'path'
 import autoprefixer from 'autoprefixer'
 
 const variablePath = normalizePath(resolve('./src/variable.scss'))
@@ -22,5 +22,10 @@ export default defineConfig({
       ]
     }
   },
-  plugins: [vue(), vueJSX()]
+  plugins: [vue(), vueJSX()],
+  resolve: {
+    alias: {
+      '@assets': join(__dirname, 'src/assets')
+    }
+  }
 })
