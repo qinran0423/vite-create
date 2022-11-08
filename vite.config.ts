@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJSX from '@vitejs/plugin-vue-jsx'
 import { resolve, join } from 'path'
 import autoprefixer from 'autoprefixer'
+import svgLoader from 'vite-svg-loader'
 
 //  用 normalizePath 解决 window 下的路径问题
 const variablePath = normalizePath(resolve('./src/variable.scss'))
@@ -26,7 +27,7 @@ export default defineConfig({
       ]
     }
   },
-  plugins: [vue(), vueJSX()],
+  plugins: [vue(), vueJSX(), svgLoader()],
   resolve: {
     alias: {
       '@assets': join(__dirname, 'src/assets')
