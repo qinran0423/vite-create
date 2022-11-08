@@ -1,5 +1,14 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
+import {
+  // create naive ui
+  create,
+  // component
+  NButton
+} from 'naive-ui'
 
-createApp(App).mount('#app')
+const naive = create({
+  components: [NButton]
+})
+createApp(App).use(naive).mount('#app')

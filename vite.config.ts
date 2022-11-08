@@ -4,6 +4,7 @@ import vueJSX from '@vitejs/plugin-vue-jsx'
 import { resolve, join } from 'path'
 import autoprefixer from 'autoprefixer'
 
+//  用 normalizePath 解决 window 下的路径问题
 const variablePath = normalizePath(resolve('./src/variable.scss'))
 
 // https://vitejs.dev/config/
@@ -13,6 +14,9 @@ export default defineConfig({
       scss: {
         additionalData: `@import "${variablePath}";`
       }
+    },
+    modules: {
+      generateScopedName: '[name]__[local]___[hash:base64:5]'
     },
     postcss: {
       plugins: [
